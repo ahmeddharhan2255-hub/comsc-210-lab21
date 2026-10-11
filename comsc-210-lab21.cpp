@@ -53,9 +53,9 @@ private:
     };
 
 public:
-    Goat();
+    Goat()          {age = randAge(); name = randName(); color = randColor();}
 
-    Goat(int age, string name, string color);
+    Goat(int a, string n, string c) {age = a; name = n; color = c;}
 
     int randAge()             {return (rand() % (MAX_LS) + 1);}
 
@@ -138,30 +138,6 @@ public:
         else
             tail = newNode; // Inserting at the end
         temp->next = newNode;
-    }
-
-    void delete_node(Goat ) {
-        if (!head) return; // Empty list
-
-        Node* temp = head;
-        while (temp && temp->data != value)
-            temp = temp->next;
-
-        if (!temp) return; // Value not found
-
-        if (temp->prev) {
-            temp->prev->next = temp->next;
-        } else {
-            head = temp->next; // Deleting the head
-        }
-
-        if (temp->next) {
-            temp->next->prev = temp->prev;
-        } else {
-            tail = temp->prev; // Deleting the tail
-        }
-
-        delete temp;
     }
 
     void print() {
