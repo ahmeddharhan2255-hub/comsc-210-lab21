@@ -11,10 +11,38 @@ private:
     int age;
     string name;
     string color;
-    string names[MAX_ARR];
+    string names[MAX_ARR] = {        
+        "Crimson",
+        "Teal",
+        "Lavender",
+        "Amber",
+        "Charcoal",
+        "Coral",
+        "Indigo",
+        "Mint",
+        "Peach",
+        "Periwinkle",
+        "Sage",
+        "Turquoise",
+        "Maroon",
+        "Olive",
+        "Magenta"
+
+    };
     string colors[MAX_ARR];
 
 public:
+    Goat();
+
+    Goat(int age, string name, string color);
+
+
+
+    int randAge()             {}
+
+    string randName()         {}
+
+    string randColor()        {}
 
 };
 
