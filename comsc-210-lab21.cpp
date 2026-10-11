@@ -52,17 +52,17 @@ private:
 
     };
 
-public:
+public: 
     Goat()          {age = randAge(); name = randName(); color = randColor();}
-
     Goat(int a, string n, string c) {age = a; name = n; color = c;}
 
+    int getAge()   {return age;}
+    string getName()  {return name;}
+    string getColor() {return color;}
+
     int randAge()             {return (rand() % (MAX_LS) + 1);}
-
     string randName()         {return names[randNum()];}
-
     string randColor()        {return colors[randNum()];}
-
     int randNum()             {return (rand() % (MAX_ARR));}
 
 };
@@ -144,7 +144,9 @@ public:
         Node* current = head;
         if (!current) return;
         while (current) {
-            cout << current->data << " ";
+            cout << current->data.getName() << " ";
+            cout << "(" << current->data.getColor();
+            cout << ". " << current->data.getAge() << ")" << endl;
             current = current->next;
         }
         cout << endl;
@@ -154,7 +156,9 @@ public:
         Node* current = tail;
         if (!current) return;
         while (current) {
-            cout << current->data << " ";
+            cout << current->data.getName() << " ";
+            cout << "(" << current->data.getColor();
+            cout << ". " << current->data.getAge() << ")" << endl;
             current = current->prev;
         }
         cout << endl;
@@ -175,10 +179,13 @@ int main() {
     srand(time(0));
 
     DoublyLinkedList list;
+    Goat temp;
+
     int size = rand() % (MAX_LS-MIN_LS+1) + MIN_LS;
 
     for (int i = 0; i < size; ++i)
-        list.push_back(rand() % (MAX_NR-MIN_NR+1) + MIN_NR);
+        Goat temp;
+        list.push_back(temp);
     cout << "List forward: ";
     list.print();
 
