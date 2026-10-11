@@ -55,7 +55,7 @@ private:
 public:
     Goat();
 
-    Goat(int age, string name, string color)     {age = randAge(); name = randName(); color = randColor();}
+    Goat(int age, string name, string color);
 
     int randAge()             {return (rand() % (MAX_LS) + 1);}
 
@@ -63,17 +63,17 @@ public:
 
     string randColor()        {return colors[randNum()];}
 
-    int randNum()             {return (rand() % (MAX_ARR - 1) + 1);}
+    int randNum()             {return (rand() % (MAX_ARR));}
 
 };
 
 class DoublyLinkedList {
 private:
     struct Node {
-        int data;
+        Goat data;
         Node* prev;
         Node* next;
-        Node(int val, Node* p = nullptr, Node* n = nullptr) {
+        Node(Goat val, Node* p = nullptr, Node* n = nullptr) {
             data = val; 
             prev = p;
             next = n;
@@ -87,7 +87,7 @@ public:
     // constructor
     DoublyLinkedList() { head = nullptr; tail = nullptr; }
 
-    void push_back(int value) {
+    void push_back(Goat value) {
         Node* newNode = new Node(value);
         if (!tail)  // if there's no tail, the list is empty
             head = tail = newNode;
@@ -98,7 +98,7 @@ public:
         }
     }
 
-    void push_front(int value) {
+    void push_front(Goat value) {
         Node* newNode = new Node(value);
         if (!head)  // if there's no head, the list is empty
             head = tail = newNode;
@@ -109,7 +109,7 @@ public:
         }
     }
 
-    void insert_after(int value, int position) {
+    void insert_after(Goat value, int position) {
         if (position < 0) {
             cout << "Position must be >= 0." << endl;
             return;
@@ -140,7 +140,7 @@ public:
         temp->next = newNode;
     }
 
-    void delete_node(int value) {
+    void delete_node(Goat ) {
         if (!head) return; // Empty list
 
         Node* temp = head;
