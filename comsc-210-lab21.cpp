@@ -142,9 +142,12 @@ public:
 
     void print() {
         Node* current = head;
-        if (!current) return;
+        if (!current){
+            cout << "List is Empty" << endl;
+        return;
+        }
         while (current) {
-            cout << current->data.getName() << " ";
+            cout << "\t" << current->data.getName() << " ";
             cout << "(" << current->data.getColor();
             cout << ". " << current->data.getAge() << ")" << endl;
             current = current->next;
@@ -154,9 +157,12 @@ public:
 
     void print_reverse() {
         Node* current = tail;
-        if (!current) return;
+        if (!current){
+            cout << "List is Empty" << endl;
+        return;
+        }
         while (current) {
-            cout << current->data.getName() << " ";
+            cout << "\t" << current->data.getName() << " ";
             cout << "(" << current->data.getColor();
             cout << ". " << current->data.getAge() << ")" << endl;
             current = current->prev;
@@ -179,23 +185,25 @@ int main() {
     srand(time(0));
 
     DoublyLinkedList list;
-    Goat temp;
 
     int size = rand() % (MAX_LS-MIN_LS+1) + MIN_LS;
 
-    for (int i = 0; i < size; ++i)
+    for (int i = 0; i < size; ++i){
         Goat temp;
         list.push_back(temp);
-    cout << "List forward: ";
+    }
+
+    cout << "List forward: " << endl;
     list.print();
 
-    cout << "List backward: ";
+    cout << "List backward: " << endl;
     list.print_reverse();
 
     cout << "Deleting list, then trying to print.\n";
     list.~DoublyLinkedList();
-    cout << "List forward: ";
+    cout << "List forward: " << endl;
     list.print();
+    
 
     return 0;
 }
