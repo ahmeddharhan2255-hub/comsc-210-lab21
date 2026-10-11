@@ -2,6 +2,10 @@
 
 #include <iostream>
 #include <string>
+#include <random>
+#include <cstdlib>
+
+
 using namespace std;
 
 const int MIN_NR = 10, MAX_NR = 99, MAX_ARR = 15, MIN_LS = 5, MAX_LS = 20;
@@ -11,7 +15,25 @@ private:
     int age;
     string name;
     string color;
-    string names[MAX_ARR] = {        
+    string names[MAX_ARR] = {
+        "Billy",
+        "Nanny",
+        "Capri",
+        "Butter",
+        "Shadow",
+        "Gizmo",
+        "Ziggy",
+        "Clover",
+        "Pip",
+        "Goofy",
+        "Truffle",
+        "Biscuit",
+        "Coco",
+        "Peanut",
+        "Scout"
+    };
+
+    string colors[MAX_ARR] = {        
         "Crimson",
         "Teal",
         "Lavender",
@@ -29,20 +51,19 @@ private:
         "Magenta"
 
     };
-    string colors[MAX_ARR];
 
 public:
     Goat();
 
-    Goat(int age, string name, string color);
+    Goat(int age, string name, string color)     {age = randAge(); name = randName(); color = randColor();}
 
+    int randAge()             {return (rand() % (MAX_LS) + 1);}
 
+    string randName()         {return names[randNum()];}
 
-    int randAge()             {}
+    string randColor()        {return colors[randNum()];}
 
-    string randName()         {}
-
-    string randColor()        {}
+    int randNum()             {return (rand() % (MAX_ARR - 1) + 1);}
 
 };
 
